@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://dv1uuf8ekm2l5"]
+
+[ext_resource type="PackedScene" uid="uid://b4cdf3hcbldri" path="res://paddle.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://dwdp6kt5entc5" path="res://Hello2.cs" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://dra1yw86chl4l" path="res://Paddle.cs" id="2_h2yge"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_63xf3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvo5p"]
+size = Vector2(1280, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vujuh"]
+size = Vector2(1280, 10)
+
+[node name="main" type="Node2D" unique_id=1105518584]
+position = Vector2(-11, -360)
+
+[node name="spele" type="Node2D" parent="." unique_id=70748613]
+
+[node name="paddle right" parent="spele" unique_id=751836958 instance=ExtResource("1_0xm2m")]
+position = Vector2(1220, 360)
+
+[node name="paddle left" parent="spele" unique_id=489540218 instance=ExtResource("1_0xm2m")]
+position = Vector2(60, 360)
+script = ExtResource("2_h2yge")
+
+[node name="ball" type="CharacterBody2D" parent="spele" unique_id=361452542]
+position = Vector2(640, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spele/ball" unique_id=1469834467]
+position = Vector2(247, 236)
+shape = SubResource("CircleShape2D_63xf3")
+debug_color = Color(0.33090264, 0.6142943, 0.3109442, 0.41960785)
+
+[node name="ColorRect" type="ColorRect" parent="spele/ball" unique_id=1853695271]
+offset_left = 234.0
+offset_top = 225.0
+offset_right = 259.0
+offset_bottom = 249.0
+color = Color(1, 1, 0.050980393, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ui" type="Node2D" parent="." unique_id=1328147542]
+
+[node name="punkti" type="Label" parent="ui" unique_id=1105985702]
+offset_left = 590.0
+offset_top = 21.0
+offset_right = 630.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 30
+text = "0:0"
+metadata/_edit_use_anchors_ = true
+
+[node name="siena augsa" type="StaticBody2D" parent="ui" unique_id=1143543462]
+modulate = Color(1, 0.2509804, 1, 1)
+physics_material_override = SubResource("PhysicsMaterial_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ui/siena augsa" unique_id=2116138615]
+position = Vector2(640, 10)
+shape = SubResource("RectangleShape2D_xvo5p")
+
+[node name="ColorRect" type="ColorRect" parent="ui/siena augsa/CollisionShape2D" unique_id=456279190]
+offset_left = -640.0
+offset_top = -5.0
+offset_right = 640.0
+offset_bottom = 5.0
+color = Color(0.94509804, 0.007843138, 0.007843138, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="siena apaksa" type="StaticBody2D" parent="ui" unique_id=1924038739]
+modulate = Color(1, 0.3137255, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ui/siena apaksa" unique_id=2040262262]
+position = Vector2(640, 715)
+shape = SubResource("RectangleShape2D_vujuh")
+
+[node name="ColorRect" type="ColorRect" parent="ui/siena apaksa/CollisionShape2D" unique_id=253487365]
+offset_left = -640.0
+offset_top = -5.0
+offset_right = 640.0
+offset_bottom = 5.0
+color = Color(1, 0, 0.019607844, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="viduslinija" type="Line2D" parent="ui" unique_id=96273973]
+position = Vector2(249, 98)
+points = PackedVector2Array(391, -88, 391, 618)
+
+[node name="hello" type="Node" parent="." unique_id=2003689988]
+script = ExtResource("2_0xm2m")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1384203216]
+offset = Vector2(640, 360)
