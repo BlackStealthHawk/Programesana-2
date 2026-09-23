@@ -1,17 +1,20 @@
 [gd_scene format=3 uid="uid://b4cdf3hcbldri"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0u6g6"]
+size = Vector2(20, 20)
 
 [node name="paddle left" type="CharacterBody2D" unique_id=751836958]
+collision_layer = 1
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1499625215]
-position = Vector2(25, 26)
+position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_0u6g6")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=859572837]
 modulate = Color(1, 0, 1, 1)
 custom_minimum_size = Vector2(20, 20)
-offset_left = -47.0
-offset_top = 20.0
-offset_right = -27.0
-offset_bottom = 40.0
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0

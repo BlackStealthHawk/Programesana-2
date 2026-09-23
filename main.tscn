@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dv1uuf8ekm2l5"]
 
 [ext_resource type="PackedScene" uid="uid://b4cdf3hcbldri" path="res://paddle.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://cof13v1mgfgkt" path="res://game.cs" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://dwdp6kt5entc5" path="res://Hello2.cs" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://dra1yw86chl4l" path="res://Paddle.cs" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://brdjgxtv23nc6" path="res://Ball.cs" id="3_1bvp3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_63xf3"]
 
@@ -16,11 +18,15 @@ size = Vector2(1280, 10)
 
 [node name="main" type="Node2D" unique_id=1105518584]
 position = Vector2(-11, -360)
+script = ExtResource("1_lquwl")
 
 [node name="spele" type="Node2D" parent="." unique_id=70748613]
 
 [node name="paddle right" parent="spele" unique_id=751836958 instance=ExtResource("1_0xm2m")]
 position = Vector2(1220, 360)
+script = ExtResource("2_h2yge")
+InputUp = "p2_up"
+InputDown = "p2_down"
 
 [node name="paddle left" parent="spele" unique_id=489540218 instance=ExtResource("1_0xm2m")]
 position = Vector2(60, 360)
@@ -28,27 +34,27 @@ script = ExtResource("2_h2yge")
 
 [node name="ball" type="CharacterBody2D" parent="spele" unique_id=361452542]
 position = Vector2(640, 360)
+script = ExtResource("3_1bvp3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spele/ball" unique_id=1469834467]
-position = Vector2(247, 236)
 shape = SubResource("CircleShape2D_63xf3")
 debug_color = Color(0.33090264, 0.6142943, 0.3109442, 0.41960785)
 
 [node name="ColorRect" type="ColorRect" parent="spele/ball" unique_id=1853695271]
-offset_left = 234.0
-offset_top = 225.0
-offset_right = 259.0
-offset_bottom = 249.0
+offset_left = -12.5
+offset_top = -12.5
+offset_right = 12.5
+offset_bottom = 12.5
 color = Color(1, 1, 0.050980393, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="ui" type="Node2D" parent="." unique_id=1328147542]
 
 [node name="punkti" type="Label" parent="ui" unique_id=1105985702]
-offset_left = 590.0
-offset_top = 21.0
-offset_right = 630.0
-offset_bottom = 44.0
+offset_left = 512.0
+offset_top = 28.0
+offset_right = 555.0
+offset_bottom = 70.0
 theme_override_font_sizes/font_size = 30
 text = "0:0"
 metadata/_edit_use_anchors_ = true
